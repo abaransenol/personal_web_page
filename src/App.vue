@@ -1,12 +1,8 @@
 <template>
     <nav-bar></nav-bar>
-    <div class="xl:flex h-screen bg-linear-to-t from-purple-700 to-purple-950">
-        <div class="h-screen relative flex-1">
-            <home-section></home-section>
-        </div>
-        <div class="flex-1">
-            <about-section></about-section>
-        </div>
+    <div class="xl:flex h-fit bg-linear-to-t from-purple-700 to-purple-950">
+        <home-section class="flex-1"></home-section>
+        <about-section class="flex-1"></about-section>
     </div>
 </template>
 

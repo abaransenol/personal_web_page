@@ -1,7 +1,63 @@
 <template>
     <section id="about">
-        <div class="h-screen bg-linear-to-b xl:bg-linear-to-t from-purple-700 to-purple-950">
-
+        <div class="h-screen relative">
+            <div class="
+                text-slate-200
+                absolute left-1/2 top-7/12 -translate-x-1/2 w-2/3 h-2/3
+                transform opacity-0 duration-1000 ease-in"
+                :class="{'-translate-1/2 opacity-100': isSectionVisible}"
+            >
+                <h1 class="text-9xl w-fit m-auto">Hey!</h1>
+                <p class="text-3xl m-10 text-center">
+                    I am a 20-year-old student who studies computer engineering in Eskisehir
+                    Technical University. I have been interested in programming since I was 15 years
+                    old. I have high level knowledge about dart language and flutter framework and
+                    good enough knowledge about java and python languages.
+                </p>
+                <div class="flex flex-row w-fit m-auto opacity-80 space-x-3">
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
+                        src="/src/assets/ico/js.svg"
+                        alt="js"
+                        title="Javascript"
+                        @click="() => redirect('https://developer.mozilla.org/en-US/docs/Web/JavaScript')"
+                    >
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
+                        src="/src/assets/ico/vue.svg"
+                        alt="vue"
+                        title="Vue.js"
+                        @click="() => redirect('https://vuejs.org/')"
+                    >
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
+                        src="/src/assets/ico/flutter.svg"
+                        alt="flutter"
+                        title="Flutter"
+                        @click="() => redirect('https://flutter.dev/')"
+                    >
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
+                        src="/src/assets/ico/python.svg"
+                        alt="python"
+                        title="Python"
+                        @click="() => redirect('https://www.python.org/')"
+                    >
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
+                        src="/src/assets/ico/java.svg"
+                        alt="java"
+                        title="Java"
+                        @click="() => redirect('https://www.java.com/en/')"
+                    >
+                </div>
+            </div>
         </div>
     </section>
 </template>
+
+<script setup>
+import { onMounted, ref } from 'vue';
+
+const isSectionVisible = ref(false)
+onMounted(() => {
+    setTimeout(() => isSectionVisible.value = true, 500)
+})
+
+const redirect = (url) => window.location.href = url
+</script>
