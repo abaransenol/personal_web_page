@@ -1,9 +1,9 @@
 <template>
-    <section id="about">
+    <section id="aboutme">
         <div class="h-screen relative">
             <div class="
                 text-slate-200
-                absolute left-1/2 top-7/12 -translate-x-1/2 w-2/3 h-2/3
+                absolute left-1/2 top-7/12 -translate-y-1/2 w-2/3 h-2/3
                 transform opacity-0 duration-1000 ease-in"
                 :class="{'-translate-1/2 opacity-100': isSectionVisible}"
             >
@@ -15,32 +15,32 @@
                     good enough knowledge about java and python languages.
                 </p>
                 <div class="flex flex-row w-fit m-auto opacity-80 space-x-3">
-                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
-                        src="/src/assets/ico/js.svg"
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
+                        src="/src/assets/ico/langs/js.svg"
                         alt="js"
                         title="Javascript"
                         @click="() => redirect('https://developer.mozilla.org/en-US/docs/Web/JavaScript')"
                     >
-                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
-                        src="/src/assets/ico/vue.svg"
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
+                        src="/src/assets/ico/langs/vue.svg"
                         alt="vue"
                         title="Vue.js"
                         @click="() => redirect('https://vuejs.org/')"
                     >
-                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
-                        src="/src/assets/ico/flutter.svg"
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
+                        src="/src/assets/ico/langs/flutter.svg"
                         alt="flutter"
                         title="Flutter"
                         @click="() => redirect('https://flutter.dev/')"
                     >
-                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
-                        src="/src/assets/ico/python.svg"
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
+                        src="/src/assets/ico/langs/python.svg"
                         alt="python"
                         title="Python"
                         @click="() => redirect('https://www.python.org/')"
                     >
-                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300"
-                        src="/src/assets/ico/java.svg"
+                    <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
+                        src="/src/assets/ico/langs/java.svg"
                         alt="java"
                         title="Java"
                         @click="() => redirect('https://www.java.com/en/')"

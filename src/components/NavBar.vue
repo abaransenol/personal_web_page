@@ -8,8 +8,14 @@
             <a class="hover:text-3xl hover:opacity-50 duration-300" href="#">
                 Home 
             </a>
-            <a class="hover:text-3xl hover:opacity-50 duration-300" href="#about"> 
+            <a class="hover:text-3xl hover:opacity-50 duration-300" href="#aboutme"> 
                 About Me
+            </a>
+            <a class="hover:text-3xl hover:opacity-50 duration-300" href="#projects">
+                Projects
+            </a>
+            <a class="hover:text-3xl hover:opacity-50 duration-300" href="#experience">
+                Experience 
             </a>
         </nav>
     </div>

@@ -9,7 +9,7 @@
                 <div class="flex-2 relative">
                     <div class="
                         absolute left-1/2 top-1/2 -translate-1/2 w-140 h-140
-                        rounded-full border-10 border-purple-800"
+                        rounded-full border-10 border-purple-800 shadow-2xl shadow-black"
                     >
                         <img 
                             class="h-full w-full rounded-full"
@@ -25,15 +25,15 @@
                     <h1 class="text-5xl font-semibold text-slate-200 w-fit m-auto opacity-90">
                         Software Engineer
                     </h1>
-                    <div class="flex flex-row mt-5 opacity-80 w-fit m-auto">
-                        <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
-                            src="/src/assets/ico/linkedin.svg"
+                    <div class="flex flex-row mt-5 opacity-80 w-fit m-auto space-x-2">
+                        <img class="w-20 h-20hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
+                            src="/src/assets/ico/sites/linkedin.svg"
                             alt="in"
                             title="LinkedIn Page"
                             @click="() => redirect('https://www.linkedin.com/in/abaransenol')"
                         />
                         <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
-                            src="/src/assets/ico/github.svg"
+                            src="/src/assets/ico/sites/github.svg"
                             alt="github"
                             title="Github Page"
                             @click="() => redirect('https://github.com/abaransenol')"
