@@ -99,21 +99,21 @@
                         </div>
                         <div class="flex-1 relative">
                             <div class="absolute left-1/2 top-1/2 -translate-1/2 flex">
-                                <img class="w-6 h-6 cursor-pointer m-auto hover:h-8 hover:w-8 duration-300"
+                                <img class="w-6 h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                                     src="/src/assets/ico/back.svg"
                                     alt="back"
                                     title="Previous Project"
                                     @click="() => changeRepo(currentRepo.id - 1)"
                                 >
                                 <img v-if="repos.length > 0" v-for="repo in repos" 
-                                    class="w-5 h-5 cursor-pointer m-auto hover:h-7 hover:w-7 duration-300"
-                                    :class="{'w-7 h-7 hover:w-10 hover:h-10': repo.id === currentRepo.id && !changingRepo}"
+                                    class="w-5 h-5 cursor-pointer m-auto hover:scale-150 duration-300"
+                                    :class="{'scale-150 hover:scale-175': repo.id === currentRepo.id && !changingRepo}"
                                     src="/src/assets/ico/dot.svg"
                                     alt="project"
                                     :title="repo.name"
                                     @click="() => changeRepo(repo.id)"
                                 >
-                                <img class="w-6 h-6 cursor-pointer m-auto hover:h-8 hover:w-8 duration-300"
+                                <img class="w-6 h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                                     src="/src/assets/ico/forward.svg"
                                     alt="forward"
                                     title="Next Project"
@@ -185,6 +185,7 @@ const processRepos = async (data) => {
 }
 
 const changeRepo = (id) => {
+    if (id == currentRepo.value.id) return
     if (id < 0) {
         id = repos.length - 1
     }

@@ -26,7 +26,7 @@
                         Software Engineer
                     </h1>
                     <div class="flex flex-row mt-5 opacity-80 w-fit m-auto space-x-2">
-                        <img class="w-20 h-20hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
+                        <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
                             src="/src/assets/ico/sites/linkedin.svg"
                             alt="in"
                             title="LinkedIn Page"
@@ -37,6 +37,12 @@
                             alt="github"
                             title="Github Page"
                             @click="() => redirect('https://github.com/abaransenol')"
+                        />
+                        <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
+                            src="/src/assets/ico/sites/save_cv.svg"
+                            alt="cv"
+                            title="Resume"
+                            @click="() => openPDF('/src/assets/files/Ali Baran Şenol (English).pdf')"
                         />
                     </div>
                 </div>
@@ -54,4 +60,5 @@ onMounted(() => {
 })
 
 const redirect = (url) => window.location.href = url
+const openPDF = (dir) => window.open(dir)
 </script>
