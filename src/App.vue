@@ -2,7 +2,7 @@
     <nav-bar></nav-bar>
     <div class="bg-fixed bg-linear-to-t from-purple-700 to-purple-950">
         <home-section></home-section>
-        <div class="xl:flex h-fit">
+        <div class="xl:flex">
             <about-section class="flex-1"></about-section>
             <projects-section class="flex-1"></projects-section>
         </div>
