@@ -2,13 +2,15 @@
     <section id="experience">
         <div class="flex-col xl:flex xl:flex-row">
             <div class="flex-1 h-screen relative">
-                <div class="flex flex-col absolute left-1/2 top-1/2 -translate-1/2 w-3/4 h-3/4">
-                    <div class="flex-1 text-slate-200 text-8xl w-fit m-auto">
+                <div class="flex flex-col absolute left-1/2 top-1/2 -translate-y-1/2 w-3/4 h-3/4 transform opacity-0 duration-1000 ease-in"
+                    :class="{'-translate-1/2 opacity-100': isSectionVisible}"
+                >
+                    <div class="flex-1 text-slate-200 text-6xl sm:text-8xl w-fit m-auto">
                         <h1>Experience</h1>
                     </div>
-                    <div class="flex-6 relative">
+                    <div class="flex-8 sm:flex-6 relative">
                         <div class="absolute left-1/2 top-1/2 -translate-1/2 w-7/8 h-7/8">
-                            <p class="text-slate-200 text-3xl text-center w-fit m-auto">
+                            <p class="text-slate-200 text-xl sm:text-3xl text-center w-fit m-auto">
                                 Hidroana - Hydrogen Powered Vehicle Project (October 2024 - September 2025)
                                 <br><br>
                                 Built real-time data visualization
@@ -37,39 +39,42 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-1 h-screen relative">
-                <div class="flex flex-col absolute left-1/2 top-12/25 -translate-1/2 w-9/10 h-2/3">
+            <div class="flex-1 h-[75vh] sm:h-screen relative">
+                <div class="flex flex-col absolute left-1/2 top-12/25 -translate-y-1/2 w-9/10 h-2/3 transform opacity-0 duration-1000 ease-in"
+                    :class="{'-translate-1/2 opacity-100': isSectionVisible}"
+                >
                     <div class="flex-9 flex flex-col">
                         <div 
                             class="flex-19 flex w-full h-3/4 border-b-4 border-purple-950 rounded-xl overflow-hidden drop-shadow-2xl duration-400"
                             :class="{'opacity-0': isCurrentLanguageChanging || isCurrentPhotoIndexChanging}"
                         >
                             <img 
-                                class="mt-auto object-contain rounded-xl"
+                                class="mt-auto object-contain rounded-xl cursor-pointer"
                                 :src="currentLang[currentPhotoIndex]"
                                 alt="img"
+                                @click="() => openPhoto(currentLang[currentPhotoIndex])"
                             >
                         </div>
-                        <div class="flex-1 relative">
+                        <div class="flex-1">
                             <div
-                                class="absolute left-1/2 top-1/2 -translate-1/2 flex duration-400"
+                                class="w-fit m-auto flex duration-400"
                                 :class="{'opacity-0': isCurrentLanguageChanging}"    
                             >
-                                <img class="w-6 h-6 cursor-pointer m-auto hover:scale-125 duration-300"
+                                <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                                     src="/src/assets/ico/back.svg"
                                     alt="back"
                                     title="Previous Photo"
                                     @click="() => changePhotoIndex(currentPhotoIndex - 1)"
                                 >
                                 <img v-for="i in currentLang.length"
-                                    class="w-5 h-5 cursor-pointer m-auto hover:scale-150 duration-300"
-                                    :class="{'w-7 h-7': currentPhotoIndex === i-1 && !isCurrentPhotoIndexChanging}"
+                                    class="aspect-square h-4 md:h-5 cursor-pointer m-auto hover:scale-150 duration-300"
+                                    :class="{'h-6 md:h-7': currentPhotoIndex === i-1 && !isCurrentPhotoIndexChanging}"
                                     src="/src/assets/ico/dot.svg"
                                     alt="project"
                                     :title="`Photo ${i}`"
                                     @click="() => changePhotoIndex(i - 1)"
                                 >
-                                <img class="w-6 h-6 cursor-pointer m-auto hover:scale-125 duration-300"
+                                <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                                     src="/src/assets/ico/forward.svg"
                                     alt="forward"
                                     title="Next Photo"
@@ -81,19 +86,19 @@
                     <div class="flex-1 mt-5">
                         <div 
                             class="w-fit m-auto flex space-x-3 opacity-90">
-                            <img class="w-20 h-20 hover:scale-110 hover:cursor-pointer duration-300"
+                            <img class="aspect-square h-16 md:h-20 hover:scale-110 hover:cursor-pointer duration-300"
                                 src="/src/assets/ico/langs/vue.svg"
                                 alt="vue"
                                 title="Vue.js"
                                 @click="() => changeCurrentLanguage(langs2ImageSources.vue)"
                             >
-                            <img class="w-20 h-20 hover:scale-110 hover:cursor-pointer duration-300"
+                            <img class="aspect-square h-16 md:h-20 hover:scale-110 hover:cursor-pointer duration-300"
                                 src="/src/assets/ico/langs/flutter.svg"
                                 alt="flutter"
                                 title="Flutter"
                                 @click="() => changeCurrentLanguage(langs2ImageSources.flutter)"
                             >
-                            <img class="w-20 h-20 hover:scale-110 hover:cursor-pointer duration-300"
+                            <img class="aspect-square h-16 md:h-20 hover:scale-110 hover:cursor-pointer duration-300"
                                 src="/src/assets/ico/langs/qt.svg"
                                 alt="qt"
                                 title="PySide6"
@@ -108,7 +113,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+
+const isSectionVisible = ref(false)
+onMounted(() => {
+    setTimeout(() => isSectionVisible.value = true, 500)
+})
 
 const langs2ImageSources = {
     vue: [
@@ -156,4 +166,6 @@ const changePhotoIndex = (newIndex) => {
         isCurrentPhotoIndexChanging.value = false
     }, 400)
 }
+
+const openPhoto = (dir) => window.open(dir)
 </script>

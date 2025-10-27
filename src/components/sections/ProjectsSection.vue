@@ -1,8 +1,8 @@
 <template>
     <section id="projects">
-        <div class="h-screen relative">
+        <div class="h-[50vh] sm:h-screen relative">
             <div class="
-                absolute left-1/2 top-1/2 -translate-y-1/2 w-3/4 h-1/2
+                absolute left-1/2 top-1/2 -translate-y-1/2 w-3/4 h-full sm:h-1/2
                 transform opacity-0 duration-1000 ease-in"
                 :class="{'-translate-1/2 opacity-100': isSectionVisible}"
             >

@@ -3,7 +3,7 @@
         <div class="h-screen relative">
             <div class="
                 text-slate-200
-                absolute left-1/2 top-7/12 -translate-y-1/2 w-2/3 h-2/3
+                absolute left-1/2 top-7/12 -translate-y-1/2 w-full h-full sm:w-2/3 sm:h-2/3
                 transform opacity-0 duration-1000 ease-in"
                 :class="{'-translate-1/2 opacity-100': isSectionVisible}"
             >
