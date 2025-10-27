@@ -6,9 +6,9 @@
                 transform opacity-0 duration-1000 ease-in"
                 :class="{'-translate-1/2 opacity-100': isSectionVisible}"
             >
-                <div class="flex-2 relative">
+                <div class="flex-2 sm:flex-3 relative">
                     <div class="
-                        absolute left-1/2 top-1/2 -translate-1/2 w-140 h-140
+                        absolute left-1/2 top-1/2 -translate-1/2 aspect-square h-2/3 sm:h-5/6
                         rounded-full border-10 border-purple-800 shadow-2xl shadow-black"
                     >
                         <img 
@@ -19,10 +19,10 @@
                     </div>
                 </div>
                 <div class="flex-1">
-                    <h1 class="text-7xl font-semibold text-slate-200 w-fit m-auto opacity-90">
+                    <h1 class="text-5xl sm:text-7xl font-semibold text-slate-200 w-fit m-auto opacity-90">
                         Ali Baran Şenol
                     </h1>
-                    <h1 class="text-5xl font-semibold text-slate-200 w-fit m-auto opacity-90">
+                    <h1 class="text-4xl sm:text-6xl font-semibold text-slate-200 w-fit m-auto opacity-90">
                         Software Engineer
                     </h1>
                     <div class="flex flex-row mt-5 opacity-80 w-fit m-auto space-x-2">
