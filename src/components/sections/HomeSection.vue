@@ -1,5 +1,5 @@
 <template>
-    <section id="home">
+    <section ref="sectionRef" id="home">
         <div class="h-screen relative">
             <div class="
                 absolute flex flex-col left-1/2 top-1/2 -translate-x-1/2 w-11/12 h-11/12
@@ -55,8 +55,20 @@
 import { onMounted, ref } from 'vue';
 
 const isSectionVisible = ref(false)
+const sectionRef = ref()
 onMounted(() => {
-    setTimeout(() => isSectionVisible.value = true, 50)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                isSectionVisible.value = true
+                observer.unobserve(entry.target)
+            }
+        })
+    }, {
+        threshold: 0.5
+    })
+
+    observer.observe(sectionRef.value)
 })
 
 const redirect = (url) => window.location.href = url

@@ -1,11 +1,11 @@
 <template>
-    <section id="aboutme">
+    <section ref="sectionRef" id="aboutme">
         <div class="h-screen relative">
             <div class="
                 text-slate-200
-                absolute left-1/2 top-7/12 -translate-y-1/2 w-full h-full sm:w-2/3 sm:h-2/3
+                absolute left-1/2 top-7/12 -translate-1/2 w-full h-full sm:w-2/3 sm:h-2/3
                 transform opacity-0 duration-1000 ease-in"
-                :class="{'-translate-1/2 opacity-100': isSectionVisible}"
+                :class="{'opacity-100': isSectionVisible}"
             >
                 <h1 class="text-8xl sm:text-9xl w-fit m-auto">Hey!</h1>
                 <p class="text-2xl sm:text-3xl m-8 text-center">
@@ -55,8 +55,20 @@
 import { onMounted, ref } from 'vue';
 
 const isSectionVisible = ref(false)
+const sectionRef = ref()
 onMounted(() => {
-    setTimeout(() => isSectionVisible.value = true, 500)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                isSectionVisible.value = true
+                observer.unobserve(entry.target)
+            }
+        })
+    }, {
+        threshold: 0.5
+    })
+
+    observer.observe(sectionRef.value)
 })
 
 const redirect = (url) => window.location.href = url

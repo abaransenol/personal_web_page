@@ -1,8 +1,8 @@
 <template>
-    <section id="experience">
+    <section ref="sectionRef" id="experience">
         <div class="flex-col xl:flex xl:flex-row">
             <div class="flex-1 h-screen relative">
-                <div class="flex flex-col absolute left-1/2 top-1/2 -translate-y-1/2 w-3/4 h-3/4 transform opacity-0 duration-1000 ease-in"
+                <div class="flex flex-col absolute left-1/2 top-1/2 -translate-1/2 w-3/4 h-3/4 transform opacity-0 duration-1000 ease-in"
                     :class="{'-translate-1/2 opacity-100': isSectionVisible}"
                 >
                     <div class="flex-1 text-slate-200 text-6xl sm:text-8xl w-fit m-auto">
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="flex-1 h-[75vh] sm:h-screen relative">
-                <div class="flex flex-col absolute left-1/2 top-12/25 -translate-y-1/2 w-9/10 h-2/3 transform opacity-0 duration-1000 ease-in"
+                <div class="flex flex-col absolute left-1/2 top-12/25 -translate-1/2 w-9/10 h-2/3 transform opacity-0 duration-1000 ease-in"
                     :class="{'-translate-1/2 opacity-100': isSectionVisible}"
                 >
                     <div class="flex-9 flex flex-col">
@@ -52,6 +52,7 @@
                                 class="mt-auto object-contain rounded-xl cursor-pointer"
                                 :src="currentLang[currentPhotoIndex]"
                                 alt="img"
+                                title="Enlarge the image"
                                 @click="() => openPhoto(currentLang[currentPhotoIndex])"
                             >
                         </div>
@@ -116,8 +117,20 @@
 import { onMounted, ref } from 'vue';
 
 const isSectionVisible = ref(false)
+const sectionRef = ref()
 onMounted(() => {
-    setTimeout(() => isSectionVisible.value = true, 500)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                isSectionVisible.value = true
+                observer.unobserve(entry.target)
+            }
+        })
+    }, {
+        threshold: 0.5
+    })
+
+    observer.observe(sectionRef.value)
 })
 
 const langs2ImageSources = {

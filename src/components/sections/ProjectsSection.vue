@@ -1,10 +1,10 @@
 <template>
-    <section id="projects">
-        <div class="h-[50vh] sm:h-screen relative">
+    <section ref="sectionRef" id="projects">
+        <div class="h-[75vh] sm:h-screen relative">
             <div class="
-                absolute left-1/2 top-1/2 -translate-y-1/2 w-3/4 h-full sm:h-1/2
+                absolute left-1/2 top-1/2 -translate-1/2 w-3/4 h-1/2
                 transform opacity-0 duration-1000 ease-in"
-                :class="{'-translate-1/2 opacity-100': isSectionVisible}"
+                :class="{'opacity-100': isSectionVisible}"
             >
                 <h1 class="text-slate-200 text-6xl sm:text-7xl w-fit m-auto">Projects</h1>
                 <div class="w-fit m-auto">
@@ -135,7 +135,6 @@ import { load } from 'js-yaml';
 
 const redirect = (url) => window.location.href = url
 
-const isSectionVisible = ref(false)
 let languageColors = {}
 const repoLanguageColor = ref('#ffffff')
 
@@ -145,12 +144,25 @@ onBeforeMount(async () => {
     .then((data) => languageColors = load(data))
 })
 
+const isSectionVisible = ref(false)
+const sectionRef = ref()
 onMounted(() => {
-    setTimeout(() => isSectionVisible.value = true, 500)
-
     // Fetching and processing repos from github
     axios.get('https://api.github.com/users/abaransenol/repos')
         .then((res) => processRepos(res.data))
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                isSectionVisible.value = true
+                observer.unobserve(entry.target)
+            }
+        })
+    }, {
+        threshold: 0.5
+    })
+
+    observer.observe(sectionRef.value)
 })
 
 const repos = []
