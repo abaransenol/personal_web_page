@@ -1,7 +1,7 @@
 <template>
     <section ref="sectionRef" id="experience">
         <div class="flex-col xl:flex xl:flex-row">
-            <div class="flex-1 h-screen relative">
+            <div class="min-h-0 flex-1 h-screen relative">
                 <div class="flex flex-col absolute left-1/2 top-1/2 -translate-1/2 w-3/4 h-3/4 transform opacity-0 duration-1000 ease-in"
                     :class="{'-translate-1/2 opacity-100': isSectionVisible}"
                 >
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-1 h-[75vh] sm:h-screen relative">
+            <div class="flex-1 min-h-0 h-[75vh] sm:h-screen relative">
                 <div class="flex flex-col absolute left-1/2 top-12/25 -translate-1/2 w-9/10 h-2/3 transform opacity-0 duration-1000 ease-in"
                     :class="{'-translate-1/2 opacity-100': isSectionVisible}"
                 >
@@ -62,7 +62,7 @@
                                 :class="{'opacity-0': isCurrentLanguageChanging}"    
                             >
                                 <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
-                                    src="/src/assets/ico/back.svg"
+                                    src="/assets/ico/back.svg"
                                     alt="back"
                                     title="Previous Photo"
                                     @click="() => changePhotoIndex(currentPhotoIndex - 1)"
@@ -70,13 +70,13 @@
                                 <img v-for="i in currentLang.length"
                                     class="aspect-square h-4 md:h-5 cursor-pointer m-auto hover:scale-150 duration-300"
                                     :class="{'h-6 md:h-7': currentPhotoIndex === i-1 && !isCurrentPhotoIndexChanging}"
-                                    src="/src/assets/ico/dot.svg"
+                                    src="/assets/ico/dot.svg"
                                     alt="project"
                                     :title="`Photo ${i}`"
                                     @click="() => changePhotoIndex(i - 1)"
                                 >
                                 <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
-                                    src="/src/assets/ico/forward.svg"
+                                    src="/assets/ico/forward.svg"
                                     alt="forward"
                                     title="Next Photo"
                                     @click="() => changePhotoIndex(currentPhotoIndex + 1)"
@@ -88,19 +88,19 @@
                         <div 
                             class="w-fit m-auto flex space-x-3 opacity-90">
                             <img class="aspect-square h-16 md:h-20 hover:scale-110 hover:cursor-pointer duration-300"
-                                src="/src/assets/ico/langs/vue.svg"
+                                src="/assets/ico/langs/vue.svg"
                                 alt="vue"
                                 title="Vue.js"
                                 @click="() => changeCurrentLanguage(langs2ImageSources.vue)"
                             >
                             <img class="aspect-square h-16 md:h-20 hover:scale-110 hover:cursor-pointer duration-300"
-                                src="/src/assets/ico/langs/flutter.svg"
+                                src="/assets/ico/langs/flutter.svg"
                                 alt="flutter"
                                 title="Flutter"
                                 @click="() => changeCurrentLanguage(langs2ImageSources.flutter)"
                             >
                             <img class="aspect-square h-16 md:h-20 hover:scale-110 hover:cursor-pointer duration-300"
-                                src="/src/assets/ico/langs/qt.svg"
+                                src="/assets/ico/langs/qt.svg"
                                 alt="qt"
                                 title="PySide6"
                                 @click="() => changeCurrentLanguage(langs2ImageSources.pyside6)"
@@ -135,17 +135,17 @@ onMounted(() => {
 
 const langs2ImageSources = {
     vue: [
-        "/src/assets/img/vue/Website_Main.png",
-        "/src/assets/img/vue/Website_Login.png",
+        "/assets/img/vue/Website_Main.png",
+        "/assets/img/vue/Website_Login.png",
     ],
     flutter: [
-        "/src/assets/img/flutter/Mobile_Application_Midas.png",
-        "/src/assets/img/flutter/Mobile_Application_Dorlion.png",
+        "/assets/img/flutter/Mobile_Application_Midas.png",
+        "/assets/img/flutter/Mobile_Application_Dorlion.png",
     ],
     pyside6: [
-        "/src/assets/img/pyside6/ADAS_HUB_open.png",
-        "/src/assets/img/pyside6/ADAS_HUB_closed.png",
-        "/src/assets/img/pyside6/Navigation.png"
+        "/assets/img/pyside6/ADAS_HUB_open.png",
+        "/assets/img/pyside6/ADAS_HUB_closed.png",
+        "/assets/img/pyside6/Navigation.png"
     ]
 }
 

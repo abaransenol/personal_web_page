@@ -13,7 +13,7 @@
                     >
                         <img 
                             class="h-full w-full rounded-full"
-                            src="/src/assets/img/baran.jpg"
+                            src="/assets/img/baran.jpg"
                             alt="Profile Photo"
                         />
                     </div>
@@ -27,22 +27,22 @@
                     </h1>
                     <div class="flex flex-row mt-5 opacity-80 w-fit m-auto space-x-2">
                         <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
-                            src="/src/assets/ico/sites/linkedin.svg"
+                            src="/assets/ico/sites/linkedin.svg"
                             alt="in"
                             title="LinkedIn Page"
                             @click="() => redirect('https://www.linkedin.com/in/abaransenol')"
                         />
                         <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
-                            src="/src/assets/ico/sites/github.svg"
+                            src="/assets/ico/sites/github.svg"
                             alt="github"
                             title="Github Page"
                             @click="() => redirect('https://github.com/abaransenol')"
                         />
                         <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
-                            src="/src/assets/ico/sites/save_cv.svg"
+                            src="/assets/ico/sites/save_cv.svg"
                             alt="cv"
                             title="Resume"
-                            @click="() => openPDF('/src/assets/files/Ali Baran Şenol (English).pdf')"
+                            @click="() => openPDF('/assets/files/Ali Baran Şenol (English).pdf')"
                         />
                     </div>
                 </div>

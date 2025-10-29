@@ -16,31 +16,31 @@
                 </p>
                 <div class="flex flex-row w-fit m-auto opacity-80 space-x-3">
                     <img class="w-13 h-13 hover:w-15 hover:h-15 sm:w-20 sm:h-20 sm:hover:w-22 sm:hover:h-22 duration-300 hover:cursor-pointer"
-                        src="/src/assets/ico/langs/js.svg"
+                        src="/assets/ico/langs/js.svg"
                         alt="js"
                         title="Javascript"
                         @click="() => redirect('https://developer.mozilla.org/en-US/docs/Web/JavaScript')"
                     >
                     <img class="w-13 h-13 hover:w-15 hover:h-15 sm:w-20 sm:h-20 sm:hover:w-22 sm:hover:h-22 duration-300 hover:cursor-pointer"
-                        src="/src/assets/ico/langs/vue.svg"
+                        src="/assets/ico/langs/vue.svg"
                         alt="vue"
                         title="Vue.js"
                         @click="() => redirect('https://vuejs.org/')"
                     >
                     <img class="w-13 h-13 hover:w-15 hover:h-15 sm:w-20 sm:h-20 sm:hover:w-22 sm:hover:h-22 duration-300 hover:cursor-pointer"
-                        src="/src/assets/ico/langs/flutter.svg"
+                        src="/assets/ico/langs/flutter.svg"
                         alt="flutter"
                         title="Flutter"
                         @click="() => redirect('https://flutter.dev/')"
                     >
                     <img class="w-13 h-13 hover:w-15 hover:h-15 sm:w-20 sm:h-20 sm:hover:w-22 sm:hover:h-22 duration-300 hover:cursor-pointer"
-                        src="/src/assets/ico/langs/python.svg"
+                        src="/assets/ico/langs/python.svg"
                         alt="python"
                         title="Python"
                         @click="() => redirect('https://www.python.org/')"
                     >
                     <img class="w-13 h-13 hover:w-15 hover:h-15 sm:w-20 sm:h-20 sm:hover:w-22 sm:hover:h-22 duration-300 hover:cursor-pointer"
-                        src="/src/assets/ico/langs/java.svg"
+                        src="/assets/ico/langs/java.svg"
                         alt="java"
                         title="Java"
                         @click="() => redirect('https://www.java.com/en/')"

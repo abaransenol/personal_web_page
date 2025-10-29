@@ -18,7 +18,7 @@
                             <div class="flex flex-row">
                                 <div class="flex-2 flex flex-row m-auto">
                                     <img class="aspect-square h-8 sm:h-10 md:h-12"
-                                        src="/src/assets/ico/github/git-branch.svg"
+                                        src="/assets/ico/github/git-branch.svg"
                                         alt="repo"
                                     >
                                     <h2 
@@ -36,7 +36,7 @@
                                         @click="() => redirect(currentRepo.license.url)"
                                     >
                                         <img class="aspect-square w-3.5 sm:w-4 md:w-5"
-                                            src="/src/assets/ico/github/license.svg"
+                                            src="/assets/ico/github/license.svg"
                                             alt="licence"
                                         >
                                         <h1 class="m-auto ml-1.5 md:ml-3">
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="flex w-fit">
                                     <img class="opacity-80 m-auto scale-75 sm:scale-85 md:scale-100"
-                                        src="/src/assets/ico/github/star.svg"
+                                        src="/assets/ico/github/star.svg"
                                         alt="star"
                                         title="Favorites"
                                     >
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="flex w-fit">
                                     <img class="opacity-80 m-auto scale-85 sm:scale-90 md:scale-100"
-                                        src="/src/assets/ico/github/watchers.svg"
+                                        src="/assets/ico/github/watchers.svg"
                                         alt="watchers"
                                         title="Watchers"
                                     >
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="flex w-fit">
                                     <img class="opacity-80 m-auto scale-115 md:scale-120 sm:scale-125"
-                                        src="/src/assets/ico/github/git-branch.svg"
+                                        src="/assets/ico/github/git-branch.svg"
                                         alt="fork"
                                         title="Forks"
                                     >
@@ -100,7 +100,7 @@
                         <div class="flex-1">
                             <div class="flex w-fit mt-1.5 md:mt-2 m-auto">
                                 <img class="aspect-square h-4 sm:h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
-                                    src="/src/assets/ico/back.svg"
+                                    src="/assets/ico/back.svg"
                                     alt="back"
                                     title="Previous Project"
                                     @click="() => changeRepo(currentRepo.id - 1)"
@@ -108,13 +108,13 @@
                                 <img v-if="repos.length > 0" v-for="repo in repos" 
                                     class="aspect-square h-4 md:h-5 cursor-pointer m-auto hover:scale-150 duration-300"
                                     :class="{'scale-150 hover:scale-175': repo.id === currentRepo.id && !changingRepo}"
-                                    src="/src/assets/ico/dot.svg"
+                                    src="/assets/ico/dot.svg"
                                     alt="project"
                                     :title="repo.name"
                                     @click="() => changeRepo(repo.id)"
                                 >
                                 <img class="aspect-square h-4 sm:h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
-                                    src="/src/assets/ico/forward.svg"
+                                    src="/assets/ico/forward.svg"
                                     alt="forward"
                                     title="Next Project"
                                     @click="() => changeRepo(currentRepo.id + 1)"
