@@ -1,10 +1,10 @@
 <template>
     <nav-bar></nav-bar>
-    <div class="bg-fixed bg-linear-to-t from-purple-700 to-purple-950">
+    <div class="bg-fixed bg-linear-to-t from-purple-700 to-purple-950 flex flex-col space-y-[10vh]">
         <home-section></home-section>
-        <div class="xl:flex">
-            <about-section class="flex-1"></about-section>
-            <projects-section class="flex-1"></projects-section>
+        <div class="flex flex-col space-y-[10vh] xl:space-y-0 xl:flex-row">
+            <about-section class="xl:flex-1 flex items-center justify-center"></about-section>
+            <projects-section class="xl:flex-1 flex items-center justify-center"></projects-section>
         </div>
         <experience-section></experience-section>
     </div>

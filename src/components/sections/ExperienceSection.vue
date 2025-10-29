@@ -1,51 +1,49 @@
 <template>
     <section ref="sectionRef" id="experience">
-        <div class="flex-col xl:flex xl:flex-row">
-            <div class="min-h-0 flex-1 h-screen relative">
-                <div class="flex flex-col absolute left-1/2 top-1/2 -translate-1/2 w-3/4 h-3/4 transform opacity-0 duration-1000 ease-in"
-                    :class="{'-translate-1/2 opacity-100': isSectionVisible}"
+        <div class="flex flex-col space-y-[10vh] xl:flex-row xl:space-y-0 mb-[10vh]">
+            <div class="flex-1 flex items-center justify-center">
+                <div class="flex flex-col items-center justify-center w-3/4 mx-auto space-y-10 opacity-0 duration-1000 ease-in"
+                    :class="{'opacity-100': isSectionVisible}"
                 >
-                    <div class="flex-1 text-slate-200 text-6xl sm:text-8xl w-fit m-auto">
+                    <div class="text-slate-200 text-6xl sm:text-8xl w-fit">
                         <h1>Experience</h1>
                     </div>
-                    <div class="flex-8 sm:flex-6 relative">
-                        <div class="absolute left-1/2 top-1/2 -translate-1/2 w-7/8 h-7/8">
-                            <p class="text-slate-200 text-xl sm:text-3xl text-center w-fit m-auto">
-                                Hidroana - Hydrogen Powered Vehicle Project (October 2024 - September 2025)
-                                <br><br>
-                                Built real-time data visualization
-                                dashboards using Vue.js and ApexCharts.
+                    <div class="items-center justify-center w-7/8 mx-auto">
+                        <p class="text-slate-200 text-xl sm:text-3xl text-center w-fit m-auto">
+                            Hidroana - Hydrogen Powered Vehicle Project (October 2024 - September 2025)
+                            <br><br>
+                            Built real-time data visualization
+                            dashboards using Vue.js and ApexCharts.
 
-                                Developed interactive maps with Vue-Leaflet
-                                to visualize GPS and navigation data.
+                            Developed interactive maps with Vue-Leaflet
+                            to visualize GPS and navigation data.
 
-                                Designed and implemented responsive user
-                                interfaces with TailwindCSS, ensuring
-                                compatibility across devices.
+                            Designed and implemented responsive user
+                            interfaces with TailwindCSS, ensuring
+                            compatibility across devices.
 
-                                Implemented both session-based and JWT
-                                authentication for a secure Vue.js +
-                                Express.js application.
+                            Implemented both session-based and JWT
+                            authentication for a secure Vue.js +
+                            Express.js application.
 
-                                Created a Flutter mobile application for
-                                tracking the latest data on a web server.
+                            Created a Flutter mobile application for
+                            tracking the latest data on a web server.
 
-                                Built an user-friendly car-display UI
-                                application on PySide6 for gathering
-                                separate ADAS (Advanced Driving
-                                Assistance Systems) functions.
-                            </p>
-                        </div>
+                            Built an user-friendly car-display UI
+                            application on PySide6 for gathering
+                            separate ADAS (Advanced Driving
+                            Assistance Systems) functions.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="flex-1 min-h-0 h-[75vh] sm:h-screen relative">
-                <div class="flex flex-col absolute left-1/2 top-12/25 -translate-1/2 w-9/10 h-2/3 transform opacity-0 duration-1000 ease-in"
-                    :class="{'-translate-1/2 opacity-100': isSectionVisible}"
+            <div class="flex-1 flex items-center justify-center">
+                <div class="flex flex-col items-center justify-center w-7/8 opacity-0 duration-1000 ease-in"
+                    :class="{'opacity-100': isSectionVisible}"
                 >
-                    <div class="flex-9 flex flex-col">
+                    <div class="flex flex-col">
                         <div 
-                            class="flex-19 flex w-full h-3/4 border-b-4 border-purple-950 rounded-xl overflow-hidden drop-shadow-2xl duration-400"
+                            class="flex w-full h-3/4 border-b-4 border-purple-950 rounded-xl overflow-hidden drop-shadow-2xl duration-400"
                             :class="{'opacity-0': isCurrentLanguageChanging || isCurrentPhotoIndexChanging}"
                         >
                             <img 
@@ -56,35 +54,33 @@
                                 @click="() => openPhoto(currentLang[currentPhotoIndex])"
                             >
                         </div>
-                        <div class="flex-1">
-                            <div
-                                class="w-fit m-auto flex duration-400"
-                                :class="{'opacity-0': isCurrentLanguageChanging}"    
+                        <div
+                            class="w-fit m-auto flex duration-400"
+                            :class="{'opacity-0': isCurrentLanguageChanging}"    
+                        >
+                            <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
+                                src="/assets/ico/back.svg"
+                                alt="back"
+                                title="Previous Photo"
+                                @click="() => changePhotoIndex(currentPhotoIndex - 1)"
                             >
-                                <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
-                                    src="/assets/ico/back.svg"
-                                    alt="back"
-                                    title="Previous Photo"
-                                    @click="() => changePhotoIndex(currentPhotoIndex - 1)"
-                                >
-                                <img v-for="i in currentLang.length"
-                                    class="aspect-square h-4 md:h-5 cursor-pointer m-auto hover:scale-150 duration-300"
-                                    :class="{'h-6 md:h-7': currentPhotoIndex === i-1 && !isCurrentPhotoIndexChanging}"
-                                    src="/assets/ico/dot.svg"
-                                    alt="project"
-                                    :title="`Photo ${i}`"
-                                    @click="() => changePhotoIndex(i - 1)"
-                                >
-                                <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
-                                    src="/assets/ico/forward.svg"
-                                    alt="forward"
-                                    title="Next Photo"
-                                    @click="() => changePhotoIndex(currentPhotoIndex + 1)"
-                                >
-                            </div>
+                            <img v-for="i in currentLang.length"
+                                class="aspect-square h-4 md:h-5 cursor-pointer m-auto hover:scale-150 duration-300"
+                                :class="{'h-6 md:h-7': currentPhotoIndex === i-1 && !isCurrentPhotoIndexChanging}"
+                                src="/assets/ico/dot.svg"
+                                alt="project"
+                                :title="`Photo ${i}`"
+                                @click="() => changePhotoIndex(i - 1)"
+                            >
+                            <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
+                                src="/assets/ico/forward.svg"
+                                alt="forward"
+                                title="Next Photo"
+                                @click="() => changePhotoIndex(currentPhotoIndex + 1)"
+                            >
                         </div>
                     </div>
-                    <div class="flex-1 mt-5">
+                    <div class="mt-5">
                         <div 
                             class="w-fit m-auto flex space-x-3 opacity-90">
                             <img class="aspect-square h-16 md:h-20 hover:scale-110 hover:cursor-pointer duration-300"
@@ -114,24 +110,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { useScrollAnimation } from '@/composables/useScrollAnimation';
+import { ref } from 'vue';
 
-const isSectionVisible = ref(false)
-const sectionRef = ref()
-onMounted(() => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                isSectionVisible.value = true
-                observer.unobserve(entry.target)
-            }
-        })
-    }, {
-        threshold: 0.5
-    })
-
-    observer.observe(sectionRef.value)
-})
+const { sectionRef, isSectionVisible } = useScrollAnimation()
 
 const langs2ImageSources = {
     vue: [
