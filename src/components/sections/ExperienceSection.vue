@@ -1,10 +1,10 @@
 <template>
     <section ref="sectionRef" id="experience">
-        <div class="flex flex-col space-y-[10vh] xl:flex-row xl:space-y-0 mb-[10vh]">
+        <div class="flex flex-col space-y-[10vh] xl:flex-row xl:space-y-0 mb-[10vh] opacity-0 duration-1000 ease-in"
+            :class="{'opacity-100': isSectionVisible}"
+        >
             <div class="flex-1 flex items-center justify-center">
-                <div class="flex flex-col items-center justify-center w-3/4 mx-auto space-y-10 opacity-0 duration-1000 ease-in"
-                    :class="{'opacity-100': isSectionVisible}"
-                >
+                <div class="flex flex-col items-center justify-center w-3/4 mx-auto space-y-10">
                     <div class="text-slate-200 text-6xl sm:text-8xl w-fit">
                         <h1>Experience</h1>
                     </div>
@@ -38,26 +38,23 @@
                 </div>
             </div>
             <div class="flex-1 flex items-center justify-center">
-                <div class="flex flex-col items-center justify-center w-7/8 opacity-0 duration-1000 ease-in"
-                    :class="{'opacity-100': isSectionVisible}"
-                >
-                    <div class="flex flex-col">
+                <div class="flex flex-col items-center justify-center w-7/8 mt-auto">
+                    <div class="flex flex-col duration-400"
+                        :class="{'opacity-0': isCurrentLanguageChanging}"
+                    >
                         <div 
-                            class="flex w-full h-3/4 border-b-4 border-purple-950 rounded-xl overflow-hidden drop-shadow-2xl duration-400"
-                            :class="{'opacity-0': isCurrentLanguageChanging || isCurrentPhotoIndexChanging}"
+                            class="flex w-full h-3/4 border-b-4 border-purple-950 rounded-md md:rounded-xl overflow-hidden drop-shadow-2xl duration-400"
+                            :class="{'opacity-0': isCurrentPhotoIndexChanging}"
                         >
                             <img 
-                                class="mt-auto object-contain rounded-xl cursor-pointer"
+                                class="mt-auto object-contain rounded-sm md:rounded-xl cursor-pointer"
                                 :src="currentLang[currentPhotoIndex]"
                                 alt="img"
                                 title="Enlarge the image"
                                 @click="() => openPhoto(currentLang[currentPhotoIndex])"
                             >
                         </div>
-                        <div
-                            class="w-fit m-auto flex duration-400"
-                            :class="{'opacity-0': isCurrentLanguageChanging}"    
-                        >
+                        <div class="w-fit m-auto flex">
                             <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                                 src="/assets/ico/back.svg"
                                 alt="back"
@@ -136,18 +133,19 @@ const currentPhotoIndex = ref(0)
 const isCurrentLanguageChanging = ref(false)
 const isCurrentPhotoIndexChanging = ref(false)
 
-const changeCurrentLanguage = (lang) => {
+const changeCurrentLanguage = async (lang) => {
     if (lang[0] == currentLang.value[0]) return
 
+    await loadImg(lang[0])
     isCurrentLanguageChanging.value = true
-    setTimeout(() => {
-        currentPhotoIndex.value = 0
-        currentLang.value = lang
-        isCurrentLanguageChanging.value = false
-    }, 400)
+
+    await wait(350)
+    currentPhotoIndex.value = 0
+    currentLang.value = lang
+    isCurrentLanguageChanging.value = false
 }
 
-const changePhotoIndex = (newIndex) => {
+const changePhotoIndex = async (newIndex) => {
     if (newIndex === currentPhotoIndex.value) return
     if (newIndex < 0) {
         newIndex = currentLang.value.length - 1
@@ -155,12 +153,21 @@ const changePhotoIndex = (newIndex) => {
 
     const index = newIndex % currentLang.value.length
 
+    await loadImg(currentLang.value[index])
     isCurrentPhotoIndexChanging.value = true
-    setTimeout(() => {
-        currentPhotoIndex.value = index
-        isCurrentPhotoIndexChanging.value = false
-    }, 400)
+    
+    await wait(350)
+    currentPhotoIndex.value = index
+    isCurrentPhotoIndexChanging.value = false
 }
 
 const openPhoto = (dir) => window.open(dir)
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const loadImg = async (src) => {
+    return new Promise((resolve) => {
+        const img = new Image()
+        img.src = src
+        img.onload = resolve
+    })
+}
 </script>

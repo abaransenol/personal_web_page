@@ -14,42 +14,41 @@
                     :class="{'opacity-0': changingRepo}"
                 >
                     <div class="flex flex-row">
-                        <div class="flex-2 flex flex-row m-auto">
+                        <div class="flex flex-row mr-auto">
                             <img class="aspect-square h-8 sm:h-10 md:h-12"
                                 src="/assets/ico/github/git-branch.svg"
                                 alt="repo"
                             >
                             <h2 
-                                class="text-slate-200 font-semibold ml-1 text-2xl sm:text-3xl cursor-pointer"
+                                class="text-slate-200 font-semibold sm:ml-1 text-2xl sm:text-3xl cursor-pointer"
                                 :title="`Go to ${currentRepo.name}`"
                                 @click="() => redirect(currentRepo.url)"
                             >
                                 {{ currentRepo.name }}
                             </h2>
                         </div>
-                        <div class="flex-1">
-                            <button v-if="currentRepo.license"
-                                class="ml-auto flex flex-row cursor-pointer border-2 opacity-40 hover:opacity-60 duration-250 border-amber-900 bg-black rounded-full font-semibold mt-1 px-2.5 py-1.5 text-xs sm:mt-2 sm:px-3.5 md:mt-3 md:px-5 md:py-2 md:text-sm"
-                                :title="currentRepo.license.name"
-                                @click="() => redirect(currentRepo.license.url)"
-                            >
-                                <img class="aspect-square w-3.5 sm:w-4 md:w-5"
-                                    src="/assets/ico/github/license.svg"
-                                    alt="licence"
-                                >
-                                <h1 class="m-auto ml-1.5 md:ml-3">
-                                    {{ currentRepo.license.spdx_id }}
-                                </h1>
-                            </button>
-                        </div>
                     </div>
-                    <div class="w-fit my-3 space-x-2">
-                        <button class="disabled border-2 opacity-40 border-amber-900 bg-black rounded-full font-semibold px-2.5 py-1.5 text-xs sm:px-3.5 sm:py-2 md:px-5 md:text-sm"
+                    <div class="flex w-fit my-3 space-x-2">
+                        <button class="disabled border-2 opacity-40 border-amber-900 bg-black rounded-full font-semibold mt-1 px-2.5 py-1.5 text-xs sm:mt-2 sm:px-3.5 md:mt-3 md:px-5 md:py-2 md:text-sm"
                         > {{ currentRepo.visibility }} </button>
 
                         <button v-if="currentRepo.archived"
-                            class="disabled border-2 opacity-40 border-amber-900 bg-black rounded-full font-semibold px-2.5 py-1.5 text-xs sm:px-3.5 sm:py-2 md:px-5 md:text-sm"
+                            class="disabled border-2 opacity-40 border-amber-900 bg-black rounded-full font-semibold mt-1 px-2.5 py-1.5 text-xs sm:mt-2 sm:px-3.5 md:mt-3 md:px-5 md:py-2 md:text-sm"
                         >archived</button>
+
+                        <button v-if="currentRepo.license"
+                            class="ml-auto flex flex-row cursor-pointer border-2 opacity-40 hover:opacity-60 duration-250 border-amber-900 bg-black rounded-full font-semibold mt-1 px-2.5 py-1.5 text-xs sm:mt-2 sm:px-3.5 md:mt-3 md:px-5 md:py-2 md:text-sm"
+                            :title="currentRepo.license.name"
+                            @click="() => redirect(currentRepo.license.url)"
+                        >
+                            <img class="aspect-square w-3.5 sm:w-4 md:w-5"
+                                src="/assets/ico/github/license.svg"
+                                alt="licence"
+                            >
+                            <h1 class="m-auto ml-1.5 md:ml-3">
+                                {{ currentRepo.license.spdx_id }}
+                            </h1>
+                        </button>
                     </div>
                     <div>
                         <p class="text-slate-200 text-base sm:text-lg md:text-xl ml-1 opacity-90">
