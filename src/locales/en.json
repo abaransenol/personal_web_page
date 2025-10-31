@@ -1,0 +1,86 @@
+{
+    "navbar": {
+        "home": "Home",
+        "aboutme": "About Me",
+        "projects": "Projects",
+        "experience": "Experience",
+        "changeLang": {
+            "alt": "en",
+            "title": "Türkçe'ye çevir"
+        }
+    },
+    "homeSection": {
+        "name": "Ali Baran Şenol",
+        "jobTitle": "Software Engineer",
+        "linkedin": {
+            "alt": "in",
+            "title": "LinkedIn Page"
+        },
+        "github": {
+            "alt": "github",
+            "title": "Github Page"
+        },
+        "resume": {
+            "alt": "resume",
+            "title": "Resume"
+        }
+    },
+    "aboutSection": {
+        "greeting": "Hey!",
+        "aboutMe": "Software Engineer with strong experience building responsive and interactive applications using JavaScript, Vue.js, and modern web libraries. Skilled in real-time data visualization, mapping interfaces, and full-stack integration with backend APIs. Hands-on experience delivering production-ready features such as session-based and JWT authentication, live graphs, and map visualizations. Passionate about crafting performant, user-friendly interfaces and continuously improving frontend architecture."
+    },
+    "projectSection": {
+        "title": "Projects",
+        "redirectRepo": "Go to {repoName}",
+        "visibility": {
+            "public": "Public",
+            "private": "Private"
+        },
+        "archived": "Archived",
+        "noDescription": "No description found on this repository.",
+        "stars": {
+            "alt": "star",
+            "title": "Favorites"
+        },
+        "watchers": {
+            "alt": "watchers",
+            "title": "Watchers"
+        },
+        "forks": {
+            "alt": "forks",
+            "title": "Forks"
+        },
+        "lastUpdate": "Last Update: {lastUpdate}",
+        "previous": {
+            "alt": "previous",
+            "title": "Previous Project"
+        },
+        "dot": {
+            "alt": "project"
+        },
+        "next": {
+            "alt": "next",
+            "title": "Next Project"
+        }
+    },
+    "experienceSection": {
+        "title": "Experience",
+        "experience": "Hidroana - Hydrogen Powered Vehicle Project (October 2024 - September 2025)\n\nBuilt real-time data visualization dashboards using Vue.js and ApexCharts.\nDeveloped interactive maps with Vue-Leaflet to visualize GPS and navigation data.\nDesigned and implemented responsive user interfaces with TailwindCSS, ensuring compatibility across devices.\nImplemented both session-based and JWT authentication for a secure Vue.js + Express.js application.\nCreated a Flutter mobile application for tracking the latest data on a web server.\nBuilt an user-friendly car-display UI application on PySide6 for gathering separate ADAS (Advanced Driving Assistance Systems) functions.",
+        "image": {
+            "alt": "img",
+            "title": "Enlarge the image"
+        },
+        "previous": {
+            "alt": "previous",
+            "title": "Previous Photo"
+        },
+        "dot": {
+            "alt": "photo",
+            "title": "Photo {index}"
+        },
+        "next": {
+            "alt": "next",
+            "title": "Next Photo"
+        }
+    }
+}

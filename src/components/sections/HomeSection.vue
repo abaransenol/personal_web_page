@@ -17,29 +17,29 @@
             </div>
             <div class="flex-1">
                 <h1 class="text-5xl sm:text-7xl font-semibold text-slate-200 w-fit m-auto opacity-90">
-                    Ali Baran Şenol
+                    {{ $t('homeSection.name') }} 
                 </h1>
                 <h1 class="text-4xl sm:text-6xl font-semibold text-slate-200 w-fit m-auto opacity-90">
-                    Software Engineer
+                    {{ $t('homeSection.jobTitle') }} 
                 </h1>
                 <div class="flex flex-row mt-5 opacity-80 w-fit m-auto space-x-2">
                     <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
                         src="/assets/ico/sites/linkedin.svg"
-                        alt="in"
-                        title="LinkedIn Page"
+                        :alt="$t('homeSection.linkedin.alt')"
+                        :title="$t('homeSection.linkedin.title')"
                         @click="() => redirect('https://www.linkedin.com/in/abaransenol')"
                     />
                     <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
                         src="/assets/ico/sites/github.svg"
-                        alt="github"
-                        title="Github Page"
+                        :alt="$t('homeSection.github.alt')"
+                        :title="$t('homeSection.github.title')"
                         @click="() => redirect('https://github.com/abaransenol')"
                     />
                     <img class="w-20 h-20 hover:w-22 hover:h-22 duration-300 hover:cursor-pointer"
                         src="/assets/ico/sites/save_cv.svg"
-                        alt="cv"
-                        title="Resume"
-                        @click="() => openPDF('/assets/files/Ali Baran Şenol (English).pdf')"
+                        :alt="$t('homeSection.resume.alt')"
+                        :title="$t('homeSection.resume.title')"
+                        @click="openPDF"
                     />
                 </div>
             </div>
@@ -49,9 +49,17 @@
 
 <script setup>
 import { useScrollAnimation } from '@/composables/useScrollAnimation';
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const { sectionRef, isSectionVisible } = useScrollAnimation()
+const { locale } = useI18n()
+
+const PDFLocation = computed(() => {
+    const lang = locale.value === 'en' ? "English" : "Türkçe"
+    return `/assets/files/Ali Baran Şenol (${lang}).pdf`
+})
 
 const redirect = (url) => window.location.href = url
-const openPDF = (dir) => window.open(dir)
+const openPDF = () => window.open(PDFLocation.value)
 </script>

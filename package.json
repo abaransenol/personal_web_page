@@ -14,7 +14,8 @@
     "js-yaml": "^4.1.0",
     "marked": "^16.4.0",
     "tailwindcss": "^4.1.13",
-    "vue": "^3.5.17"
+    "vue": "^3.5.17",
+    "vue-i18n": "^11.1.12"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.0",

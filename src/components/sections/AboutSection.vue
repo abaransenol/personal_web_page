@@ -6,13 +6,8 @@
             opacity-0 duration-1000 ease-in"
             :class="{'opacity-100': isSectionVisible}"
         >
-            <h1 class="text-8xl sm:text-9xl w-fit">Hey!</h1>
-            <p class="text-2xl sm:text-3xl m-8 text-center w-7/8">
-                I am a 20-year-old student who studies computer engineering in Eskisehir
-                Technical University. I have been interested in programming since I was 15 years
-                old. I have high level knowledge about dart language and flutter framework and
-                good enough knowledge about java and python languages.
-            </p>
+            <h1 class="text-8xl sm:text-9xl w-fit">{{ $t('aboutSection.greeting') }} </h1>
+            <p class="text-2xl sm:text-3xl m-8 text-center w-7/8">{{ $t('aboutSection.aboutMe') }}</p>
             <div class="flex flex-row w-fit m-auto opacity-80 space-x-3">
                 <img class="w-13 h-13 hover:w-15 hover:h-15 sm:w-20 sm:h-20 sm:hover:w-22 sm:hover:h-22 duration-300 hover:cursor-pointer"
                     src="/assets/ico/langs/js.svg"

@@ -1,0 +1,86 @@
+{
+    "navbar": {
+        "home": "Ana Sayfa",
+        "aboutme": "Hakkımda",
+        "projects": "Projeler",
+        "experience": "İş Tecrübesi",
+        "changeLang": {
+            "alt": "tr",
+            "title": "Translate to English"
+        }
+    },
+    "homeSection": {
+        "name": "Ali Baran Şenol",
+        "jobTitle": "Yazılım Mühendisi",
+        "linkedin": {
+            "alt": "in",
+            "title": "LinkedIn Sayfası"
+        },
+        "github": {
+            "alt": "github",
+            "title": "Github Sayfası"
+        },
+        "resume": {
+            "alt": "cv",
+            "title": "CV'yi görüntüle"
+        }
+    },
+    "aboutSection": {
+        "greeting": "Selam!",
+        "aboutMe": "JavaScript, Vue.js ve modern web teknolojileriyle duyarlı ve etkileşimli web uygulamaları geliştirme konusunda deneyimli bir Yazılım Mühendisiyim. Gerçek zamanlı veri görselleştirme, harita tabanlı arayüzler ve backend API entegrasyonlarında tecrübeliyim. Session ve JWT kimlik doğrulama, canlı grafikler ve harita görselleştirmeleri gibi üretim ortamına hazır özellikler geliştirme konusunda pratik deneyimim bulunmakta. Yüksek performanslı, kullanıcı dostu arayüzler tasarlamaya ve frontend mimarisini sürekli olarak geliştirmeye odaklıyım."
+    },
+    "projectSection": {
+        "title": "Projeler",
+        "redirectRepo": "{repoName} projesine git",
+        "visibility": {
+            "public": "Herkese Açık",
+            "private": "Gizli"
+        },
+        "archived": "Arşivlenmiş",
+        "noDescription": "Bu repo üzerinde herhangi bir açıklama bulunamadı.",
+        "stars": {
+            "alt": "yildiz",
+            "title": "Favoriler"
+        },
+        "watchers": {
+            "alt": "izleyenler",
+            "title": "İzleyiciler"
+        },
+        "forks": {
+            "alt": "catallar",
+            "title": "Çatallanmalar"
+        },
+        "lastUpdate": "Son Güncellenme: {lastUpdate}",
+        "previous": {
+            "alt": "onceki",
+            "title": "Önceki Proje"
+        },
+        "dot": {
+            "alt": "proje"
+        },
+        "next": {
+            "alt": "sonraki",
+            "title": "Sonraki Proje"
+        }
+    },
+    "experienceSection": {
+        "title": "İş Tecrübesi",
+        "experience": "Hidroana - Hidrojenle Çalışan Araç Projesi (Ekim 2024 - Eylül 2025)\n\nVue.js ve ApexCharts kullanarak gerçek zamanlı veri görselleştirme panelleri geliştirdim.\nGPS ve navigasyon verilerini görselleştirmek için Vue-Leaflet ile etkileşimli haritalar tasarladım.\nTailwindCSS kullanarak tüm cihazlarla uyumlu, duyarlı kullanıcı arayüzleri tasarlayıp uyguladım.\nVue.js + Express.js tabanlı bir uygulama için oturum tabanlı ve JWT kimlik doğrulama sistemlerini entegre ettim.\nWeb sunucusundaki güncel verileri takip edebilmek için Flutter tabanlı bir mobil uygulama geliştirdim.\nFarklı ADAS (Gelişmiş Sürücü Destek Sistemleri) fonksiyonlarını bir araya getirmek amacıyla PySide6 kullanarak kullanıcı dostu bir araç gösterge arayüzü uygulaması oluşturdum.",
+        "image": {
+            "alt": "gorsel",
+            "title": "Resmi büyüt"
+        },
+        "previous": {
+            "alt": "onceki",
+            "title": "Önceki Resim"
+        },
+        "dot": {
+            "alt": "resim",
+            "title": "Resim {index}"
+        },
+        "next": {
+            "alt": "sonraki",
+            "title": "Sonraki Resim"
+        }
+    }
+}

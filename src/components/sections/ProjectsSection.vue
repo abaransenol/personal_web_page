@@ -5,7 +5,7 @@
             opacity-0 duration-1000 ease-in"
             :class="{'opacity-100': isSectionVisible}"
         >
-            <h1 class="text-slate-200 text-6xl sm:text-7xl w-fit mx-auto">Projects</h1>
+            <h1 class="text-slate-200 text-6xl sm:text-7xl w-fit mx-auto">{{ $t('projectSection.title') }}</h1>
             <div class="
                 text-slate-200 mx-auto
                 flex flex-col aspect-square sm:aspect-3/2 w-3/4 border-3 shadow-xl border-purple-950 rounded-3xl
@@ -21,7 +21,7 @@
                             >
                             <h2 
                                 class="text-slate-200 font-semibold sm:ml-1 text-2xl sm:text-3xl cursor-pointer"
-                                :title="`Go to ${currentRepo.name}`"
+                                :title="$t('projectSection.redirectRepo', { repoName: currentRepo.name })"
                                 @click="() => redirect(currentRepo.url)"
                             >
                                 {{ currentRepo.name }}
@@ -30,11 +30,11 @@
                     </div>
                     <div class="flex w-fit my-3 space-x-2">
                         <button class="disabled border-2 opacity-40 border-amber-900 bg-black rounded-full font-semibold mt-1 px-2.5 py-1.5 text-xs sm:mt-2 sm:px-3.5 md:mt-3 md:px-5 md:py-2 md:text-sm"
-                        > {{ currentRepo.visibility }} </button>
+                        > {{ currentRepo.visibility === 'public' ? $t('projectSection.visibility.public') : $t('projectSection.visibility.private') }} </button>
 
                         <button v-if="currentRepo.archived"
                             class="disabled border-2 opacity-40 border-amber-900 bg-black rounded-full font-semibold mt-1 px-2.5 py-1.5 text-xs sm:mt-2 sm:px-3.5 md:mt-3 md:px-5 md:py-2 md:text-sm"
-                        >archived</button>
+                        >{{ $t('projectSection.archived') }}</button>
 
                         <button v-if="currentRepo.license"
                             class="ml-auto flex flex-row cursor-pointer border-2 opacity-40 hover:opacity-60 duration-250 border-amber-900 bg-black rounded-full font-semibold mt-1 px-2.5 py-1.5 text-xs sm:mt-2 sm:px-3.5 md:mt-3 md:px-5 md:py-2 md:text-sm"
@@ -52,7 +52,7 @@
                     </div>
                     <div>
                         <p class="text-slate-200 text-base sm:text-lg md:text-xl ml-1 opacity-90">
-                            {{ currentRepo.description }}
+                            {{ currentRepo.description || $t('projectSection.noDescription')}}
                         </p>
                     </div>
                     <div class="flex space-x-3 md:space-x-4 mt-1 ml-1 sm:mt-2.5 md:mt-4">
@@ -66,53 +66,53 @@
                         <div class="flex w-fit">
                             <img class="opacity-80 m-auto scale-75 sm:scale-85 md:scale-100"
                                 src="/assets/ico/github/star.svg"
-                                alt="star"
-                                title="Favorites"
+                                :alt="$t('projectSection.stars.alt')"
+                                :title="$t('projectSection.stars.title')"
                             >
                             <p class="md:ml-1 text-slate-200"> {{ currentRepo.stargazers_count }} </p>
                         </div>
                         <div class="flex w-fit">
                             <img class="opacity-80 m-auto scale-85 sm:scale-90 md:scale-100"
                                 src="/assets/ico/github/watchers.svg"
-                                alt="watchers"
-                                title="Watchers"
+                                :alt="$t('projectSection.watchers.alt')"
+                                :title="$t('projectSection.watchers.title')"
                             >
                             <p class="ml-0.5 sm:ml-1 text-slate-200"> {{ currentRepo.watchers_count }} </p>
                         </div>
                         <div class="flex w-fit">
                             <img class="opacity-80 m-auto scale-115 md:scale-120 sm:scale-125"
                                 src="/assets/ico/github/git-branch.svg"
-                                alt="fork"
-                                title="Forks"
+                                :alt="$t('projectSection.forks.alt')"
+                                :title="$t('projectSection.forks.title')"
                             >
                             <p class="ml-1 text-slate-200"> {{ currentRepo.forks_count }} </p>
                         </div>
                     </div>
                     <div class="mt-auto mb-0.5 ml-0.5 sm:mb-1 sm:ml-1">
                         <p class=" text-slate-200 text-sm sm:text-md md:text-lg font-semibold w-fit opacity-80">
-                            Last Update: {{ currentRepo.last_update }}
+                            {{ $t('projectSection.lastUpdate', { lastUpdate: currentRepo.last_update }) }}
                         </p>
                     </div>
                 </div>
                 <div class="flex w-fit my-1.5 md:my-2 mx-auto">
                     <img class="aspect-square h-4 sm:h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                         src="/assets/ico/back.svg"
-                        alt="back"
-                        title="Previous Project"
+                        :alt="$t('projectSection.previous.alt')"
+                        :title="$t('projectSection.previous.title')"
                         @click="() => changeRepo(currentRepo.id - 1)"
                     >
                     <img v-if="repos.length > 0" v-for="repo in repos" 
                         class="aspect-square h-4 md:h-5 cursor-pointer m-auto hover:scale-150 duration-300"
                         :class="{'scale-150 hover:scale-175': repo.id === currentRepo.id && !changingRepo}"
                         src="/assets/ico/dot.svg"
-                        alt="project"
+                        :alt="$t('projectSection.dot.alt')"
                         :title="repo.name"
                         @click="() => changeRepo(repo.id)"
                     >
                     <img class="aspect-square h-4 sm:h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                         src="/assets/ico/forward.svg"
-                        alt="forward"
-                        title="Next Project"
+                        :alt="$t('projectSection.next.alt')"
+                        :title="$t('projectSection.next.title')"
                         @click="() => changeRepo(currentRepo.id + 1)"
                     >
                 </div>
@@ -163,12 +163,12 @@ const processRepos = async (data) => {
             url: repo.svn_url,
             visibility: repo.visibility,
             archived: repo.archived,
-            description: repo.description ?? "No description found on this repository.",
+            description: repo.description,
             language: repo.language,
             stargazers_count: repo.stargazers_count,
             watchers_count: repo.watchers_count,
             forks_count: repo.forks,
-            last_update: new Date(repo.updated_at).toDateString(),
+            last_update: new Date(repo.updated_at).toLocaleString(),
             license: repo.license
         })
     });

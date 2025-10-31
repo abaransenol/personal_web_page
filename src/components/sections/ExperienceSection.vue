@@ -6,34 +6,10 @@
             <div class="flex-1 flex items-center justify-center">
                 <div class="flex flex-col items-center justify-center w-3/4 mx-auto space-y-10">
                     <div class="text-slate-200 text-6xl sm:text-8xl w-fit">
-                        <h1>Experience</h1>
+                        <h1>{{ $t('experienceSection.title') }}</h1>
                     </div>
                     <div class="items-center justify-center w-7/8 mx-auto">
-                        <p class="text-slate-200 text-xl sm:text-3xl text-center w-fit m-auto">
-                            Hidroana - Hydrogen Powered Vehicle Project (October 2024 - September 2025)
-                            <br><br>
-                            Built real-time data visualization
-                            dashboards using Vue.js and ApexCharts.
-
-                            Developed interactive maps with Vue-Leaflet
-                            to visualize GPS and navigation data.
-
-                            Designed and implemented responsive user
-                            interfaces with TailwindCSS, ensuring
-                            compatibility across devices.
-
-                            Implemented both session-based and JWT
-                            authentication for a secure Vue.js +
-                            Express.js application.
-
-                            Created a Flutter mobile application for
-                            tracking the latest data on a web server.
-
-                            Built an user-friendly car-display UI
-                            application on PySide6 for gathering
-                            separate ADAS (Advanced Driving
-                            Assistance Systems) functions.
-                        </p>
+                        <p class="text-slate-200 text-xl sm:text-3xl text-center whitespace-pre-line w-fit m-auto">{{ $t('experienceSection.experience') }}</p>
                     </div>
                 </div>
             </div>
@@ -49,30 +25,30 @@
                             <img 
                                 class="mt-auto object-contain rounded-sm md:rounded-xl cursor-pointer"
                                 :src="currentLang[currentPhotoIndex]"
-                                alt="img"
-                                title="Enlarge the image"
+                                :alt="$t('experienceSection.image.alt')"
+                                :title="$t('experienceSection.image.title')"
                                 @click="() => openPhoto(currentLang[currentPhotoIndex])"
                             >
                         </div>
                         <div class="w-fit m-auto flex">
                             <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                                 src="/assets/ico/back.svg"
-                                alt="back"
-                                title="Previous Photo"
+                                :alt="$t('experienceSection.previous.alt')"
+                                :title="$t('experienceSection.previous.title')"
                                 @click="() => changePhotoIndex(currentPhotoIndex - 1)"
                             >
                             <img v-for="i in currentLang.length"
                                 class="aspect-square h-4 md:h-5 cursor-pointer m-auto hover:scale-150 duration-300"
                                 :class="{'h-6 md:h-7': currentPhotoIndex === i-1 && !isCurrentPhotoIndexChanging}"
                                 src="/assets/ico/dot.svg"
-                                alt="project"
-                                :title="`Photo ${i}`"
+                                :alt="$t('experienceSection.dot.alt')"
+                                :title="$t('experienceSection.dot.title', { index: i })"
                                 @click="() => changePhotoIndex(i - 1)"
                             >
                             <img class="aspect-square h-5 md:h-6 cursor-pointer m-auto hover:scale-125 duration-300"
                                 src="/assets/ico/forward.svg"
-                                alt="forward"
-                                title="Next Photo"
+                                :alt="$t('experienceSection.next.alt')"
+                                :title="$t('experienceSection.next.title')"
                                 @click="() => changePhotoIndex(currentPhotoIndex + 1)"
                             >
                         </div>
