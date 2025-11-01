@@ -5,7 +5,7 @@
         >
             <div class="flex-1 flex items-center justify-center">
                 <div class="flex flex-col items-center justify-center w-3/4 mx-auto space-y-10">
-                    <div class="text-slate-200 text-6xl sm:text-8xl w-fit">
+                    <div class="text-slate-200 text-6xl sm:text-8xl w-fit text-center">
                         <h1>{{ $t('experienceSection.title') }}</h1>
                     </div>
                     <div class="items-center justify-center w-7/8 mx-auto">
@@ -13,7 +13,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-1 flex items-center justify-center">
+            <div class="flex-1 flex items-center justify-center sm:min-h-max min-h-[100vw]">
                 <div class="flex flex-col items-center justify-center w-7/8 mt-auto">
                     <div class="flex flex-col duration-400"
                         :class="{'opacity-0': isCurrentLanguageChanging}"
